@@ -3,15 +3,12 @@
   var veriSheet = SpreadsheetApp.getActiveSheet();//gets active sheet name
   if (veriSheet.getName() == "Verified"){ //if on the Verified sheet then:
 
-
 //Email send function for Verified claims
 function sendEmailVerified() {
 
 var spreadsheet = SpreadsheetApp.getActive();//Get active spreadsheet
 
 spreadsheet.setActiveSheet(spreadsheet.getSheetByName('Verified'), true); //sets Verified Sheet as active sheet
-
-//var sheet = spreadsheet.getActiveSheet(); //gets active sheet
 
 var cell = spreadsheet.getActiveCell().getA1Notation();//get description of the range in A1 notation for easier identification of column for cellA
 var activeRow = spreadsheet.getActiveCell().getRow();//gets row number of active cell for datat range
@@ -49,8 +46,7 @@ var html =
 '<p><b><a href=' + spreadsheet.getUrl() + '>Remember to update the spreadsheet!</a></b></p>'
     '</body>'
 
-
-  MailApp.sendEmail(
+  MailApp.sendEmail(  //sends email using Gmail
     'thackrayaf@gmail.com', // recipient
     'New verified refund - Atomised',    // subject
      '', {
@@ -62,15 +58,12 @@ var html =
 
 else if (veriSheet.getName() == "Rejected"){ //if on the Rejected sheet then:
 
-
 //Email send function for Rejected claims
 function sendEmailRejected() {
 
 var spreadsheet = SpreadsheetApp.getActive();//Get active spreadsheet
 
 spreadsheet.setActiveSheet(spreadsheet.getSheetByName('Rejected'), true); //sets Rejected Sheet as active sheet
-
-//var sheet = spreadsheet.getActiveSheet(); //gets active sheet
 
 var cell = spreadsheet.getActiveCell().getA1Notation();//get description of the range in A1 notation for easier identification of column for cellA
 var activeRow = spreadsheet.getActiveCell().getRow();//gets row number of active cell for datat range
@@ -109,7 +102,7 @@ var html =
     '</body>'
 
 
-  MailApp.sendEmail(
+  MailApp.sendEmail( //sends email using Gmail
     'thackrayaf@gmail.com', // recipient
     'New rejected refund - Atomised',    // subject
      '', {
